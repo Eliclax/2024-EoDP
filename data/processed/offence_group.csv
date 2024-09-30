@@ -1,0 +1,115 @@
+OGID,Offence Group,OSDID
+0,A10 Homicide and related offences,0
+1,A211 FV Serious assault,1
+2,A212 Non-FV Serious assault,1
+3,"A22 Assault police, emergency services or other authorised officer",1
+4,A231 FV Common assault,1
+5,A232 Non-FV Common assault,1
+6,A30 Sexual offences,2
+7,A41 Abduction,3
+8,A42 False imprisonment,3
+9,A43 Slavery and sexual servitude offences,3
+10,A51 Aggravated robbery,4
+11,A52 Non-Aggravated robbery,4
+12,A61 Blackmail,5
+13,A62 Extortion,5
+14,A711 FV Stalking,6
+15,A712 Non-FV Stalking,6
+16,A721 FV Harassment and private nuisance,6
+17,A722 Non-FV Harassment and private nuisance,6
+18,A731 FV Threatening behaviour,6
+19,A732 Non-FV Threatening behaviour,6
+20,A81 Dangerous driving,7
+21,A82 Neglect or ill treatment of people,7
+22,A83 Throw or discharge object endangering people,7
+23,A89 Other dangerous or negligent acts endangering people,7
+24,B11 Cause damage by fire,8
+25,B12 Cause a bushfire,8
+26,B19 Other fire related offences,8
+27,B21 Criminal damage,9
+28,B22 Graffiti,9
+29,B29 Other property damage offences,9
+30,B311 Residential aggravated burglary,10
+31,B312 Non-residential aggravated burglary,10
+32,B319 Unknown aggravated burglary,10
+33,B321 Residential non-aggravated burglary,10
+34,B322 Non-residential non-aggravated burglary,10
+35,B329 Unknown non-aggravated burglary,10
+36,B41 Motor vehicle theft,11
+37,B42 Steal from a motor vehicle,11
+38,B43 Steal from a retail store,11
+39,B44 Theft of a bicycle,11
+40,B45 Receiving or handling stolen goods,11
+41,B46 Fare evasion,11
+42,B49 Other theft,11
+43,B51 Forgery and counterfeiting,12
+44,B52 Possess equipment to make false instrument,12
+45,B53 Obtain benefit by deception,12
+46,B54 State false information,12
+47,B55 Deceptive business practices,12
+48,B56 Professional malpractice and misrepresentation,12
+49,B59 Other deception offences,12
+50,B61 Bribery of officials,13
+51,C11 Drug dealing,14
+52,C12 Drug trafficking,14
+53,C21 Cultivate drugs,15
+54,C22 Manufacture drugs,15
+55,C23 Possess drug manufacturing equipment or precursor,15
+56,C31 Drug use,16
+57,C32 Drug possession,16
+58,C99 Other drug offences,17
+59,D11 Firearms offences,18
+60,D12 Prohibited and controlled weapons offences,18
+61,D13 Explosives offences,18
+62,D21 Riot and affray,19
+63,D22 Drunk and disorderly in public,19
+64,D23 Offensive conduct,19
+65,D24 Offensive language,19
+66,D25 Criminal intent,19
+67,D26 Disorderly conduct,19
+68,D31 Privacy offences,20
+69,D32 Hoaxes,20
+70,D33 Begging,20
+71,D34 Defamation and libel,20
+72,D35 Improper movement on public or private space,20
+73,D36 Other public nuisance offences,20
+74,D41 Immigration offences,21
+75,D42 Sabotage,21
+76,D43 Hacking,21
+77,D44 Terrorism offences,21
+78,D49 Other public security offences,21
+79,E11 Escape custody,22
+80,E12 Fail to appear,22
+81,E13 Resist or hinder officer,22
+82,E14 Pervert the course of justice or commit perjury,22
+83,E15 Prison regulation offences,22
+84,E19 Other justice procedures offences,22
+85,E21 Breach family violence order,23
+86,E22 Breach intervention order,23
+87,E23 Breach bail conditions,23
+88,E29 Breach of other orders,23
+89,F11 Drink driving,24
+90,F12 Drug driving,24
+91,F13 Speeding offences,24
+92,F14 Parking offences,24
+93,F15 Licensing offences,24
+94,F16 Registration and roadworthiness offences,24
+95,F19 Other regulatory driving offences,24
+96,F21 Public transport,25
+97,F22 Aviation regulations offences,25
+98,F23 Maritime regulations offences,25
+99,F24 Pedestrian offences,25
+100,F29 Other transport regulation offences,25
+101,F31 Betting and gaming offences,26
+102,F32 Commercial regulation offences,26
+103,F33 Liquor and tobacco licensing offences,26
+104,F34 Pornography and censorship offences,26
+105,F35 Intellectual property,26
+106,F36 Prostitution offences,26
+107,F39 Other government regulatory offences,26
+108,F91 Environmental offences,27
+109,F92 Public health and safety offences,27
+110,F93 Cruelty to animals,27
+111,F94 Dangerous substance offences,27
+112,F99 Other miscellaneous offences,27
+113,Other crimes against the person,28

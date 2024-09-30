@@ -1,0 +1,103 @@
+LGID,Location Group,LSDID
+0,111 Flat/Unit/Apartment,0
+1,112 House,0
+2,113 Bungalow,0
+3,114 Caravan/Mobile Home,0
+4,115 Houseboat,0
+5,116 Ministry Of Housing,0
+6,117 Farm House,0
+7,121 Boarding House,1
+8,122 Holiday Home,1
+9,123 Guest House,1
+10,124 Nursing Home,1
+11,125 Hotel/Motel,1
+12,126 Other Dwelling,1
+13,131 Clothesline/Laundry,2
+14,1310 Farm Building,2
+15,1311 Storage Cage,2
+16,132 Backyard,2
+17,133 Frontyard,2
+18,134 Garage,2
+19,135 Shed,2
+20,136 Premises Under Construction,2
+21,137 Other Residential (nec),2
+22,138 Driveway/Carport,2
+23,139 Carpark Multi Dwelling,2
+24,211 School,3
+25,212 School Grounds,3
+26,213 Other Educational,3
+27,221 Hospital,4
+28,222 Medical Centre,4
+29,223 Dental,4
+30,224 Other Health,4
+31,231 Church,5
+32,232 Other religious,5
+33,241 Train,6
+34,2410 Rail Track,6
+35,242 Train Station,6
+36,243 Railway Carpark,6
+37,244 Tram/Tram Stop,6
+38,245 Bus/Bus Stop,6
+39,246 Depot/Terminal,6
+40,247 Freight Yard,6
+41,248 Office (Public transport office Only),6
+42,249 Taxi,6
+43,251 Private Car,7
+44,252 Airfield,7
+45,253 Boat,7
+46,254 Dock/Wharf,7
+47,255 Carpark (Single Level),7
+48,256 Carpark (Multi Level),7
+49,257 Other Transport Type/Area,7
+50,261 Police Station,8
+51,262 Court,8
+52,264 Youth Training Centre,8
+53,265 Other Justice Facility,8
+54,269 Other Justice (nec),8
+55,271 Parkland/Reserve,9
+56,272 Rural,9
+57,273 Vacant Block,9
+58,274 Beach Foreshore,9
+59,275 Other Open Space,9
+60,276 Beach Car Park,9
+61,281 Street/Lane/Footpath,10
+62,291 Cemetery,11
+63,292 Civic Centre,11
+64,293 Gallery,11
+65,294 Car Wash,11
+66,311 Business Office,12
+67,312 Other Admin/Professional,12
+68,321 Bank,13
+69,322 Credit Society,13
+70,323 ATM/Eftpos,13
+71,324 Other Financial,13
+72,331 Chemist/Pharmacy,14
+73,3310 24Hr Convenience,14
+74,3311 Restaurant/Fastfood,14
+75,3312 Other Retail,14
+76,332 Service Station,14
+77,333 Jeweller,14
+78,334 2nd Hand Dealer,14
+79,335 Supermarket,14
+80,336 Department Store,14
+81,337 Shopping Complex,14
+82,338 Car Sales Yard,14
+83,339 Milkbar,14
+84,341 Any Wholesale,15
+85,351 Warehousing/Storage,16
+86,361 Factory,17
+87,362 Any Manufacturing,17
+88,371 Farmland/Agricultural,18
+89,372 Orchard,18
+90,373 Other Agricultural,18
+91,381 Licensed Premises,19
+92,382 Tab,19
+93,383 Cinema,19
+94,384 Sport Area/Facility,19
+95,385 Gaming Venue,19
+96,386 Other Rec./Sports,19
+97,387 Gym/Fitness,19
+98,391 Massage Parlour/Brothel,20
+99,392 Other Location (Not Elsewhere),20
+100,393 Construction Site,20
+101,394 Veterinary Clinic,20

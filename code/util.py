@@ -1,3 +1,4 @@
+import warnings
 import numpy as np
 import pandas as pd
 
@@ -83,14 +84,16 @@ def extract(
 
 
     """
-    THIS ASSUMES THAT KEYS MAPS TO OTHER_COLUMNS UNIQUELY.
+    Brief summary of how this function works:
+
+    THIS FUNCTION ASSUMES THAT KEYS -> OTHER_COLUMNS IS A FUNCTIONAL DEPENDENCY.
     We only care about unique values of df[keys (+ other_columns)].  This is what we are going to replace with the 
         index of the extractor.
     We will also keep the df[other_columnns] columns.  So we need df.drop_duplicates(subset=keys)[keys + other_cols]
     Transform the names of columns in (processed) df to the ones in extractor using col_map if necessary, so we
         can merge later.
     If the extractor doesn't have all columns in keys yet, create them.
-    Do an outer join of extractor with (processed) df on keys.
+    Do an outer join of extractor with (processed) df on keys, making sure index order is preserved (which is annoying lol)
     For each column in other_columns, determine if a "target column" already exists in the extractor and if so,
         merge the two columns, with either old or new values having precedence
     For each row in df, replace keys + other_columns with index in extractor.
@@ -99,8 +102,10 @@ def extract(
     # Preprocessing
     if extractor is None:
         extractor = pd.DataFrame()
-    mapped_keys = [ col_map(x) if x in col_map.keys() else x for x in keys ]
-    mapped_other_cols = [ col_map(x) if x in col_map.keys() else x for x in other_cols ]
+    key_dtypes = [ 'Int64' if x.dtype == int else x.dtype for _, x in df[keys].items() ]
+    other_col_dtypes = [ 'Int64' if x.dtype == int else x.dtype for _, x in df[other_cols].items() ]
+    mapped_keys = [ col_map[x] if x in col_map.keys() else x for x in keys ]
+    mapped_other_cols = [ col_map[x] if x in col_map.keys() else x for x in other_cols ]
     id_name = id_name or extractor.index.name or 'ID'
 
     # Keep only values of df[keys + other_cols] unique on keys
@@ -124,15 +129,17 @@ def extract(
 
     # For each column in other_columns, determine if a "target column" already exists in the extractor and if so,
     # merge the two columns, with either old or new values having precedence depending on overwrite_old
-    for col in overlap:
-        if overwrite_old:
-            extractor[col+'_xxxxx'].update(extractor[col+'_yyyyy'])
-            extractor = extractor.drop(columns=col+'_yyyyy')
-            extractor = extractor.rename(columns={col+'_xxxxx': col})
-        else:
-            extractor[col+'_yyyyy'].update(extractor[col+'_xxxxx'])
-            extractor = extractor.drop(columns=col+'_xxxxx')
-            extractor = extractor.rename(columns={col+'_yyyyy': col})
+    with warnings.catch_warnings():
+        warnings.simplefilter(action='ignore', category=FutureWarning) # Suppress FutureWarning
+        for col in overlap:
+            if overwrite_old:
+                extractor[col+'_xxxxx'].update(extractor[col+'_yyyyy'])
+                extractor = extractor.drop(columns=col+'_yyyyy')
+                extractor = extractor.rename(columns={col+'_xxxxx': col})
+            else:
+                extractor[col+'_yyyyy'].update(extractor[col+'_xxxxx'])
+                extractor = extractor.drop(columns=col+'_xxxxx')
+                extractor = extractor.rename(columns={col+'_yyyyy': col})
 
     # For each row in df, replace keys + other_columns with index in extractor.
     extractor[id_name] = extractor.index
@@ -145,55 +152,7 @@ def extract(
     # Name the index of the extractor the id_name
     extractor.index.name = id_name
 
+    # Cast columns back to right type
+    extractor = extractor.astype(dict(zip(mapped_keys + mapped_other_cols, key_dtypes + other_col_dtypes)))
+
     return df, extractor
-
-    if False:
-
-        dfp = df.drop_duplicates(subset=keys)[keys]
-
-        # If we are extracting with an existing DF, add unique values into existing DF if necessary
-        if extractor is not None:
-            if col_map:
-                dfp = dfp.rename(columns=col_map)
-            dfp = extractor.merge(dfp, on=list(col_map.values()), how='outer')
-            
-            # df1 = pd.concat([use, df1], ignore_index=True)
-            # df1 = df1.drop_duplicates(subset=columns)[columns]
-
-        if id_name is None:
-            if extractor is not None:
-                id_name = extractor.index.name
-            else:
-                id_name = 'ID'
-
-        # Add new DF IDs into original DF, just left of left-most extracted column
-        dfp.reset_index(drop=True, inplace=True)
-        dfp[id_name] = dfp.index
-        df = df.merge(dfp, on=keys)
-        insert_col = min([df.columns.get_loc(c) for c in keys])
-        df.insert(insert_col, id_name, df.pop(id_name))
-
-        # Remove extracted columns from original DF
-        df = df.drop(columns=keys)
-
-        # Remove temporary ID column from new DF
-        dfp = dfp.drop(columns=id_name)
-        dfp.index.name = id_name
-        return df, dfp
-
-
-
-    # # OLD WORKING CODE BEFORE EXTRATOR BECAME A THING
-    # df1 = df.drop_duplicates(subset=columns)[columns]
-    # df1.reset_index(drop=True, inplace=True)
-    # df1[idname] = df1.index
-    # df1.index.name = idname
-    # df = df.merge(df1, on=columns)
-
-    # insert_col = min([df.columns.get_loc(c) for c in columns])
-    # df.insert(insert_col, idname, df.pop(idname))
-
-    # df = df.drop(columns=columns)
-    # df1 = df1.drop(columns=idname)
-
-    # return df, df1

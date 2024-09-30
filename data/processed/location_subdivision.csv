@@ -1,0 +1,22 @@
+LSDID,Location Subdivision,LDID
+0,11 Dwelling - private,0
+1,12 Dwelling  - non-private,0
+2,13 Grounds/surrounding land,0
+3,21 Education,1
+4,22 Health,1
+5,23 Religious,1
+6,24 Public Transport,1
+7,25 Other Transport,1
+8,26 Justice,1
+9,27 Open Space,1
+10,28 Street/footpath,1
+11,29 Other community location,1
+12,31 Admin/professional,2
+13,32 Financial,2
+14,33 Retail,2
+15,34 Wholesale,2
+16,35 Warehousing/storage,2
+17,36 Manufacturing,2
+18,37 Agricultural,2
+19,38 Recreational,2
+20,39 Other location,2
