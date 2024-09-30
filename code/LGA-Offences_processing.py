@@ -12,7 +12,7 @@ df_tables = ['lga', 'police_region', 'police_service_area', 'towns', 'offence_di
 df_table = {}
 for table_name in df_tables:
     df_table[table_name] = pd.DataFrame()
-    
+
 
 def process_Table_01():
     global df_table
@@ -93,8 +93,9 @@ def process_Table_03():
     # Turn numeric strings to int and float
     df['Offence Count'] = df['Offence Count'].apply(lambda x : locale.atoi(x))
 
-    # Extract towns [LGA, Postcode, Town Name]
-    df, df_table['towns'] = extract(df, keys=['Local Government Area','Postcode','Suburb/Town Name'], id_name='TID', extractor=df_table['towns'])
+    # Extract LGAs and towns [LGAID, Postcode, Town Name]
+    df, df_table['lga'] = extract(df, keys=['Local Government Area'], id_name='LGAID', extractor=df_table['lga'])
+    df, df_table['towns'] = extract(df, keys=['LGAID','Postcode','Suburb/Town Name'], id_name='TID', extractor=df_table['towns'])
 
     # Extract the Offence Group -> Offence Subdivisions -> Offence Division functional dependencies
     assert check_functional_dependency(df, 'Offence Subdivision', 'Offence Division')
